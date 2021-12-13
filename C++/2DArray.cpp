@@ -1,18 +1,33 @@
 #include <iostream>
 using namespace std;
+#include <string>
 
 int main(){
 
-    int arr2[2][3] = 
+    int arr2[3][3] = 
     {
-        {1,2,3},
-        {4,5,6}
+        {100,100,100},
+        {90, 50, 100},
+        {60, 70, 80}
     };
-    for(int i = 0; i < 2; i++){
-        for(int j = 0; j < 3; j++){
+
+    string name[3] = {"David", "Teng Fei", "Da Fu"};
+
+    for(int i = 0; i < sizeof(arr2)/sizeof(arr2[0]); i++){
+        int sum = 0;
+        for(int j = 0; j < sizeof(arr2[0])/sizeof(arr2[0][0]); j++){
             cout << arr2[i][j] << " ";
+            sum += arr2[i][j];
         }
-        cout << endl;
+        cout << "score of " << name[i] << ": is "<<sum<<endl;
     }
+
+    cout << "2D array memory space " << sizeof(arr2) << endl;
+    cout << "2D array 1 line memory space " << sizeof(arr2[0]) << endl;
+    cout << "2D array each element memory space " << sizeof(arr2[0][0]) << endl;
+
+    cout << "2D array row number " << sizeof(arr2)/sizeof(arr2[0]) << endl;
+    cout << "2D array column number " << sizeof(arr2[0])/sizeof(arr2[0][0]) << endl;
+    
     return 0;
 }
