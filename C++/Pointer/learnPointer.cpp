@@ -17,6 +17,19 @@ int main()
     //dont have permission to access a NULL pointer. 
     //cout << *j << endl;
 
+    //const pointer
+    const int * k = &a;
+    k = &b;
+    //*k = 20;
+
+    //pointer const
+    int * const q = &b;
+    *q = 21;
+    //q = &a;
+
+
+    const int * const t = &b;
+
 
     cout << "sizeof int * = "<< sizeof(int *) << endl;
     cout << "sizeof int * = "<< sizeof(float *) << endl;
