@@ -1,50 +1,53 @@
 #include <iostream>
 using namespace std;
 
-struct students {
+void printStudent1(struct students s);
+void printStudent2(struct students * p);
+
+struct students
+{
     string name;
     int age;
     int score;
 };
 
-struct teachers {
+struct teachers
+{
     int id;
     string name;
     int age;
     struct students stud;
 };
 
-int main(){
+int main()
+{
     struct students s1;
     s1.name = "Dafu";
     s1.age = 18;
     s1.score = 100;
 
-    cout << "name: "<< s1.name <<" age is: "<< s1.age <<" score is: "<< s1.score<<endl;
+    cout << "Main Function name: " << s1.name << " age is: " << s1.age << " score is: " << s1.score << endl;
 
-    struct students studArray[3]={
+    struct students studArray[3] = {
         {"DaFUU", 5, 99},
         {"DaGUU", 7, 98},
-        {"DaPOO", 9, 80}
-    };
+        {"DaPOO", 9, 80}};
 
     studArray[2].name = "DaHAA";
     studArray[2].age = 80;
 
-    for(int i=0; i<3; i++){
-        cout << "name: "<< studArray[i].name <<
-        " age is: "<< studArray[i].age <<" score is: "<<
-         studArray[i].score<< " ";
-        cout<<endl;
+    for (int i = 0; i < 3; i++)
+    {
+        cout << "name: " << studArray[i].name << " age is: " << studArray[i].age << " score is: " << studArray[i].score << " ";
+        cout << endl;
     }
 
     struct students s2 = {"DaMoo", 19, 75};
-    students * p = &s2;
+    students *p = &s2;
 
     p->age = 23;
 
-    cout << "name: "<< p->name <<" age is: "<< p->age <<" score is: "<< p->score<<endl;
-
+    cout << "name: " << p->name << " age is: " << p->age << " score is: " << p->score << endl;
 
     teachers t1;
     t1.id = 1;
@@ -54,9 +57,23 @@ int main(){
     t1.stud.name = "DADA";
     t1.stud.score = 88;
 
-    cout << "t1 name: "<< t1.name <<" t1 age is: "<< t1.age <<
-    "t1' student score is: "<< t1.stud.score<<endl;
+    cout << "t1 name: " << t1.name << " t1 age is: " << t1.age << "t1' student score is: " << t1.stud.score << endl;
+
+    //printStudent1(s1);
+    printStudent2(&s1);
+    cout << "Main Function name: " << s1.name << " age is: " << s1.age << " score is: " << s1.score << endl;
 
 
     return 0;
+}
+
+void printStudent1(struct students s)
+{
+    cout << "inside Function name: " << s.name << " age is: " << s.age << " score is: " << s.score << endl;
+}
+
+void printStudent2(struct students * p)
+{
+    p->age = 27;
+    cout << "inside Function name: " << p->name << " age is: " << p->age << " score is: " << p->score  << endl;
 }
