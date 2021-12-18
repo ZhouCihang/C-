@@ -1,5 +1,22 @@
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
+#define MAX 1000
+
+struct Person
+{
+    string mName;
+    int mGender;
+    int mAge;
+    string mPhone;
+    string mAddress;
+};
+
+struct AddressBooks
+{
+    struct Person personArray[MAX];
+    int mSize;
+};
 
 void showMenu()
 {
@@ -16,8 +33,65 @@ void showMenu()
     cout << endl;
 }
 
+void addPerson(struct AddressBooks *abs)
+{
+    if (abs->mSize == MAX)
+    {
+        cout << "Full Address Books" << endl;
+        return;
+    }
+    else
+    {
+        string name;
+        cout << "Please enter your name" << endl;
+        cin >> name;
+        abs->personArray[abs->mSize].mName = name;
+
+        int gender = 0;
+        cout << "Please enter your gender" << endl;
+        cout << "Enter 1 is for male" << endl;
+        cout << "Enter 2 is for female" << endl;
+
+        while (true)
+        {
+            cin >> gender;
+            if (gender == 1 || gender == 2)
+            {
+                abs->personArray[abs->mSize].mGender = gender;
+                break;
+            }
+            cout << "Please enter a valid gender" << endl;
+        }
+
+        int age;
+        cout << "Please enter your age" << endl;
+        cin >> age;
+        abs->personArray[abs->mSize].mAge = age;
+
+        string phone;
+        cout << "Please enter your phone" << endl;
+        cin >> phone;
+        abs->personArray[abs->mSize].mPhone = phone;
+
+        string address;
+        cout << "Please enter your address" << endl;
+        cin >> address;
+        abs->personArray[abs->mSize].mAddress = address;
+
+        abs->mSize++;
+        cout << "New User add successfully!" << endl;
+
+        system("read -p 'Press Enter to continue...' var");
+        system("clear");
+        //system("Pause");
+        //system("cls");
+    }
+}
+
 int main()
 {
+    AddressBooks abs;
+    abs.mSize = 0;
 
     int selected;
 
@@ -28,6 +102,7 @@ int main()
         switch (selected)
         {
         case 1:
+            addPerson(&abs);
             break;
         case 2:
             break;
