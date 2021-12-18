@@ -10,7 +10,7 @@ struct hero
 
 void sortArray(struct hero arrHero[], int len)
 {
-    for (int i = 0; i < len; i++)
+    for (int i = 0; i < len - 1; i++)
     {
         for (int j = 0; j < len - 1 - i; j++)
         {
@@ -24,11 +24,18 @@ void sortArray(struct hero arrHero[], int len)
     }
     cout << "HHHAAA" << endl;
 
+    /*for (int i = 0; i < 5; i++)
+    {
+        cout << arrHero[i].name << " " << arrHero[i].age << " " << arrHero[i].gender << endl;
+    }*/
+    
+}
+
+void printArray(struct hero arrHero[], int len){
     for (int i = 0; i < 5; i++)
     {
         cout << arrHero[i].name << " " << arrHero[i].age << " " << arrHero[i].gender << endl;
     }
-    
 }
 
 int main()
@@ -44,9 +51,11 @@ int main()
         arrHero[i].name = name[i];
         arrHero[i].age = age[i];
         arrHero[i].gender = gender[i];
-        cout << arrHero[i].name << " " << arrHero[i].age << " " << arrHero[i].gender << endl;
+        //cout << arrHero[i].name << " " << arrHero[i].age << " " << arrHero[i].gender << endl;
     }
 
+    printArray(arrHero,5);
     sortArray(arrHero, 5);
+    printArray(arrHero,5);
     return 0;
 }
