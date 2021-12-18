@@ -2,7 +2,7 @@
 using namespace std;
 
 void printStudent1(struct students s);
-void printStudent2(struct students * p);
+void printStudent2(const struct students * p);
 
 struct students
 {
@@ -72,8 +72,8 @@ void printStudent1(struct students s)
     cout << "inside Function name: " << s.name << " age is: " << s.age << " score is: " << s.score << endl;
 }
 
-void printStudent2(struct students * p)
+void printStudent2(const struct students * p)
 {
-    p->age = 27;
+    //p->age = 27;
     cout << "inside Function name: " << p->name << " age is: " << p->age << " score is: " << p->score  << endl;
 }
