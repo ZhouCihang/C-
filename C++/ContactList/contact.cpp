@@ -88,6 +88,33 @@ void addPerson(struct AddressBooks *abs)
     }
 }
 
+void showPerson(struct AddressBooks *abs)
+{
+    if (abs->mSize == 0)
+    {
+        cout << "Empty List" << endl;
+    }
+    else
+    {
+        for (int i = 0; i < abs->mSize; i++)
+        {
+            cout << "Name: " << abs->personArray[i].mName << "\t";
+            /*if (abs->personArray[i].mGender == 1)
+            {
+                cout << "Gender: " << "Male"<< "\t";
+            } else {
+                cout << "Gender: " << "Female"<< "\t";
+            }*/
+            cout << "Gender: " << (abs->personArray[i].mGender == 1 ? "Male" : "Female") << "\t";
+            cout << "Age: " << abs->personArray[i].mAge << "\t";
+            cout << "Phone: " << abs->personArray[i].mPhone << "\t";
+            cout << "Address: " << abs->personArray[i].mAddress << endl;
+        }
+    }
+    system("read -p 'Press Enter to continue...' var");
+    system("clear");
+}
+
 int main()
 {
     AddressBooks abs;
@@ -105,6 +132,7 @@ int main()
             addPerson(&abs);
             break;
         case 2:
+            showPerson(&abs);
             break;
         case 3:
             break;
