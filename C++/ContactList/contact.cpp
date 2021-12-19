@@ -115,6 +115,43 @@ void showPerson(struct AddressBooks *abs)
     system("clear");
 }
 
+int searchPerson(struct AddressBooks *abs, string name)
+{
+
+    for (int i = 0; i < abs->mSize; i++)
+    {
+        if (abs->personArray[i].mName == name)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void deletePerson(struct AddressBooks *abs)
+{
+    cout << "Please the person name that you wish to delete: " << endl;
+    string name;
+    cin >> name;
+    if (searchPerson(abs, name) == -1)
+    {
+        cout << "No such person." << endl;
+    }
+    else
+    {
+        cout << "Found the person." << endl;
+        int index = searchPerson(abs, name);
+        for (int i = index; i < abs->mSize;i++){
+            abs->personArray[i] = abs->personArray[i+1];
+        }
+        abs->mSize--;
+        cout << "Delete Successful!" << endl;
+    }
+
+    system("read -p 'Press Enter to continue...' var");
+    system("clear");
+}
+
 int main()
 {
     AddressBooks abs;
@@ -135,6 +172,7 @@ int main()
             showPerson(&abs);
             break;
         case 3:
+            deletePerson(&abs);
             break;
         case 4:
             break;
