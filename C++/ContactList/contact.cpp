@@ -141,13 +141,114 @@ void deletePerson(struct AddressBooks *abs)
     {
         cout << "Found the person." << endl;
         int index = searchPerson(abs, name);
-        for (int i = index; i < abs->mSize;i++){
-            abs->personArray[i] = abs->personArray[i+1];
+        for (int i = index; i < abs->mSize; i++)
+        {
+            abs->personArray[i] = abs->personArray[i + 1];
         }
         abs->mSize--;
         cout << "Delete Successful!" << endl;
     }
 
+    system("read -p 'Press Enter to continue...' var");
+    system("clear");
+}
+
+void findPerson(struct AddressBooks *abs)
+{
+    cout << "Please the person name that you wish to search." << endl;
+    string name;
+    cin >> name;
+
+    int ret = searchPerson(abs, name);
+    if (ret == -1)
+    {
+        cout << "No such person." << endl;
+    }
+    else
+    {
+        cout << "Name: " << abs->personArray[ret].mName << "\t";
+        cout << "Gender: " << (abs->personArray[ret].mGender == 1 ? "Male" : "Female") << "\t";
+        cout << "Age: " << abs->personArray[ret].mAge << "\t";
+        cout << "Phone: " << abs->personArray[ret].mPhone << "\t";
+        cout << "Address: " << abs->personArray[ret].mAddress << endl;
+    }
+
+    system("read -p 'Press Enter to continue...' var");
+    system("clear");
+}
+
+void modifyPerson(struct AddressBooks *abs)
+{
+    cout << "Please enter the user that you wish to modify." << endl;
+    string name;
+    cin >> name;
+
+    int ret = searchPerson(abs, name);
+
+    if (ret != -1)
+    {
+        string name;
+        cout << "Please enter the user name" << endl;
+        cin >> name;
+        abs->personArray[ret].mName = name;
+
+        int gender = 0;
+        cout << "Please enter your gender" << endl;
+        cout << "Enter 1 is for male" << endl;
+        cout << "Enter 2 is for female" << endl;
+
+        while (true)
+        {
+            cin >> gender;
+            if (gender == 1 || gender == 2)
+            {
+                abs->personArray[ret].mGender = gender;
+                break;
+            }
+            cout << "Please enter a valid gender" << endl;
+        }
+
+        int age;
+        cout << "Please enter your age" << endl;
+        cin >> age;
+        abs->personArray[ret].mAge = age;
+
+        string phone;
+        cout << "Please enter your phone" << endl;
+        cin >> phone;
+        abs->personArray[ret].mPhone = phone;
+
+        string address;
+        cout << "Please enter your address" << endl;
+        cin >> address;
+        abs->personArray[ret].mAddress = address;
+
+        cout << "Update successfully." << endl;
+    }
+    else
+    {
+        cout << "No such person." << endl;
+    }
+    system("read -p 'Press Enter to continue...' var");
+    system("clear");
+}
+
+void cleanPerson(struct AddressBooks *abs)
+{
+    int clear = 0;
+    cout << "Are you confirm to remove all your contact list?" << endl;
+    cout << "Enter 1 is for Yes" << endl;
+    cout << "Enter 2 is for No" << endl;
+
+    cin >> clear;
+    
+    if (clear == 1){
+        abs->mSize = 0;
+        cout << "Contact book has cleared." << endl;
+    } else {
+        cout << "You have selected not to remove all contact list."<< endl;
+    }
+    
     system("read -p 'Press Enter to continue...' var");
     system("clear");
 }
@@ -175,10 +276,13 @@ int main()
             deletePerson(&abs);
             break;
         case 4:
+            findPerson(&abs);
             break;
         case 5:
+            modifyPerson(&abs);
             break;
         case 6:
+            cleanPerson(&abs);
             break;
         case 0:
             cout << "Welcome come back again" << endl;
