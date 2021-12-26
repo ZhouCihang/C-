@@ -21,6 +21,14 @@ public:
     }
 };
 
+class C1{
+    int m_A; // default is private accessbility
+};
+
+struct C2{
+    int m_A; // default is public accessbility
+};
+
 int main()
 {
 
@@ -28,5 +36,12 @@ int main()
 
     p1.m_Name = "李四";
     p1.func();
+
+    C1 c1;
+    //c1.m_A = 123456;
+
+    C2 c2;
+    c2.m_A = 123456;
+
     return 0;
 }
