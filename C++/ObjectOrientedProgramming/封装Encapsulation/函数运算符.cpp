@@ -21,5 +21,14 @@ void test01(){
 int main()
 {
     test01();
+
+
+    int8_t x=200;
+    uint8_t y = 100;
+    if (x > y){
+        cout << "haha"<< endl;
+    }else{
+        cout <<"hohoh"<< endl;
+    }
     return 0;
 }
