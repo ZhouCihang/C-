@@ -43,8 +43,13 @@ void test01(){
     doSpeak(dog);
 }
 
+void test02(){
+    cout<<"Animal Sizeof = "<<sizeof(Animal)<< endl;
+}
+
 int main()
 {
-    test01();
+    //test01();
+    test02();
     return 0;
 }
