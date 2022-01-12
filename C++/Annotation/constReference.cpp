@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-void showValue(int &val){
-    val = 1000;
+void showValue(const int &val){
+    //val = 1000;
     cout << val << endl;
 }
 

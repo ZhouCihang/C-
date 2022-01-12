@@ -4,7 +4,6 @@ using namespace std;
 class Animal
 {
 public:
-
     int m_Age;
 };
 
@@ -21,13 +20,14 @@ class SheepCamel : public Sheep, public Camel
 {
 };
 
-void test01(){
+void test01()
+{
     SheepCamel sc;
     sc.Sheep::m_Age = 18;
     sc.Camel::m_Age = 25;
     cout << sc.Sheep::m_Age << endl;
     cout << sc.Camel::m_Age << endl;
-    cout <<sc.m_Age<<endl;
+    cout << sc.m_Age << endl;
 
     //重复数据只需要有一份，菱形继承导致数据两份，资源浪费
 }
