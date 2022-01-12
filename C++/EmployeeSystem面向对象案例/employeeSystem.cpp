@@ -3,12 +3,23 @@ using namespace std;
 #include "HeaderFile/workerManager.h"
 #include "HeaderFile/worker.h"
 #include "HeaderFile/employee.h"
+#include "HeaderFile/manager.h"
+#include "HeaderFile/boss.h"
 
 int main()
 {
-    Worker * worker = NULL;
+    Worker *worker = NULL;
     worker = new Employee(1, "张三", 1);
     worker->showInfo();
+
+    Worker *worker1 = NULL;
+    worker1 = new Manager(2, "李四", 2);
+    worker1->showInfo();
+
+    Worker *worker2 = NULL;
+    worker2 = new Boss(3, "王五", 3);
+    worker2->showInfo();
+
 
     WorkerManager wm;
 
@@ -54,4 +65,4 @@ int main()
 }
 
 //Compile command
-//cd "/Users/zhoucihang/Study-On-CPP/C++/EmployeeSystem面向对象案例/" && g++ employeeSystem.cpp workerManager.cpp -o employeeSystem -std=c++11 && "/Users/zhoucihang/Study-On-CPP/C++/EmployeeSystem面向对象案例/"employeeSystem
+//cd "/Users/zhoucihang/Study-On-CPP/C++/EmployeeSystem面向对象案例/" && g++ employeeSystem.cpp workerManager.cpp employee.cpp manager.cpp boss.cpp -o employeeSystem -std=c++11 && "/Users/zhoucihang/Study-On-CPP/C++/EmployeeSystem面向对象案例/"employeeSystem

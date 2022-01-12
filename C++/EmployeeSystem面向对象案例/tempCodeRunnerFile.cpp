@@ -1,0 +1,1 @@
+cd "/Users/zhoucihang/Study-On-CPP/C++/EmployeeSystem面向对象案例/" && g++ employeeSystem.cpp workerManager.cpp -o employeeSystem -std=c++11 && "/Users/zhoucihang/Study-On-CPP/C++/EmployeeSystem面向对象案例/"employeeSystem
