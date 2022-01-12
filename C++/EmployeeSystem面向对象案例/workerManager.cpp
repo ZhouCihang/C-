@@ -21,6 +21,12 @@ void WorkerManager::showMenu()
     cout << endl;
 }
 
+void WorkerManager::ExitSystem(){
+    cout<<"欢迎下次使用～"<<endl;
+    system("read -p 'Press Enter Any Key to continue...' var");
+    exit(0);
+}
+
 WorkerManager::~WorkerManager(){
 
 }

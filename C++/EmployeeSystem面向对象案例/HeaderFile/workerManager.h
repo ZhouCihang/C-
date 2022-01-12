@@ -10,5 +10,7 @@ public:
 
     void showMenu();
 
+    void ExitSystem();
+
     ~WorkerManager();
 };
