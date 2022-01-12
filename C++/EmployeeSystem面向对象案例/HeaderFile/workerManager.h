@@ -1,7 +1,14 @@
-#pragma once    //防止头文件重复包含
+//防止头文件重复包含
+#pragma once
 #include <iostream>
 using namespace std;
 
-class WorkerManager{
+class WorkerManager
+{
 public:
+    WorkerManager();
+
+    void showMenu();
+
+    ~WorkerManager();
 };
