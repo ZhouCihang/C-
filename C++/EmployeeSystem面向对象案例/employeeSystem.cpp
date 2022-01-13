@@ -8,17 +8,17 @@ using namespace std;
 
 int main()
 {
-    Worker *worker = NULL;
-    worker = new Employee(1, "张三", 1);
-    worker->showInfo();
+    // Worker *worker = NULL;
+    // worker = new Employee(1, "张三", 1);
+    // worker->showInfo();
 
-    Worker *worker1 = NULL;
-    worker1 = new Manager(2, "李四", 2);
-    worker1->showInfo();
+    // Worker *worker1 = NULL;
+    // worker1 = new Manager(2, "李四", 2);
+    // worker1->showInfo();
 
-    Worker *worker2 = NULL;
-    worker2 = new Boss(3, "王五", 3);
-    worker2->showInfo();
+    // Worker *worker2 = NULL;
+    // worker2 = new Boss(3, "王五", 3);
+    // worker2->showInfo();
 
 
     WorkerManager wm;
@@ -37,6 +37,7 @@ int main()
             break;
             //1. 增加职工信息
         case 1:
+            wm.AddEmp();
             break;
             //2. 显示职工信息
         case 2:
