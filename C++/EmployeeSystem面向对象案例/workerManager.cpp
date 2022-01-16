@@ -104,4 +104,8 @@ void WorkerManager::AddEmp()
 
 WorkerManager::~WorkerManager()
 {
+    if(this->m_EmpArray != NULL){
+        delete[] this->m_EmpArray;
+        this->m_EmpArray = NULL;
+    }
 }
