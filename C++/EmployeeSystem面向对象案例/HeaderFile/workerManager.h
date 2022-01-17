@@ -25,6 +25,15 @@ public:
 
     void save();
 
+    //check file whether exists
+    bool m_fileExist;
+
+    //count　employee number in the system
+    int get_EmpNum();
+
+    //initialize worker
+    void init_Emp();
+
     //recored employee number
     int m_EmpNum;
 

@@ -1,1 +1,1 @@
-void AddEmp();
+void init_Emp()
