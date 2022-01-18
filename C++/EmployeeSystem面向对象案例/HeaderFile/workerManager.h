@@ -34,6 +34,9 @@ public:
     //initialize worker
     void init_Emp();
 
+    //show employee info
+    void show_EmpInfo();
+
     //recored employee number
     int m_EmpNum;
 

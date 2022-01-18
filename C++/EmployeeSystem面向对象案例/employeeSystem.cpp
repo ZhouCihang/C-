@@ -41,6 +41,7 @@ int main()
             break;
             //2. 显示职工信息
         case 2:
+            wm.show_EmpInfo();
             break;
             //3. 删除离职职工
         case 3:

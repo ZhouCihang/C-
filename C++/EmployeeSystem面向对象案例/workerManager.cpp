@@ -38,8 +38,8 @@ WorkerManager::WorkerManager()
     int num = this->get_EmpNum();
     // cout << "职工人数为：" << num << endl;
     this->m_EmpNum = num;
-    
-    this->m_EmpArray = new Worker*[this->m_EmpNum];
+
+    this->m_EmpArray = new Worker *[this->m_EmpNum];
     this->init_Emp();
     // for (int i = 0; i < this->m_EmpNum; i++){
     //     cout << this->m_EmpArray[i]->m_ID << " "
@@ -207,6 +207,24 @@ void WorkerManager::init_Emp()
         index++;
     }
     ifs.close();
+}
+
+void WorkerManager::show_EmpInfo()
+{
+    if (this->m_fileExist == true)
+    {
+        cout << "文件不存在。" << endl;
+    }
+    else
+    {
+        for (int i = 0; i < this->m_EmpNum; i++)
+        {
+            this->m_EmpArray[i]->showInfo();
+        }
+    }
+
+    system("read -p 'Press Enter to continue...' var");
+    system("clear");
 }
 
 WorkerManager::~WorkerManager()
