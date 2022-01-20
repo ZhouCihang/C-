@@ -20,7 +20,6 @@ int main()
     // worker2 = new Boss(3, "王五", 3);
     // worker2->showInfo();
 
-
     WorkerManager wm;
 
     int choice;
@@ -45,9 +44,11 @@ int main()
             break;
             //3. 删除离职职工
         case 3:
+            wm.delete_Emp();
             break;
             //4. 修改职工信息
         case 4:
+            wm.ModifyEmp();
             break;
             //5. 查找职工信息
         case 5:

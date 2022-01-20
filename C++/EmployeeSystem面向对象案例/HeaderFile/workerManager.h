@@ -37,6 +37,15 @@ public:
     //show employee info
     void show_EmpInfo();
 
+    //delete employee from system
+    void delete_Emp();
+
+    //modify employee
+    void ModifyEmp();
+    
+    //check employee exist
+    int isExist(int id);
+
     //recored employee number
     int m_EmpNum;
 

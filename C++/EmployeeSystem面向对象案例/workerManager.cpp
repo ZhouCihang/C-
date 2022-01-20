@@ -227,6 +227,120 @@ void WorkerManager::show_EmpInfo()
     system("clear");
 }
 
+//delete employee from system
+void WorkerManager::delete_Emp()
+{
+    if (this->m_fileExist)
+    {
+        cout << "文件不存在或者为空！" << endl;
+    }
+    else
+    {
+        cout << "请输入想要删除的职工编号：" << endl;
+        int id;
+        cin >> id;
+
+        int index = this->isExist(id);
+        if (index != -1)
+        {
+            for (int i = index; i < this->m_EmpNum - 1; i++)
+            {
+
+                //数据前移
+                this->m_EmpArray[i] = this->m_EmpArray[i + 1];
+            }
+            this->m_EmpNum--;
+
+            //Update data
+            this->save();
+        }
+        else
+        {
+            cout << "删除失败，找到该职工!" << endl;
+        }
+        system("read -p 'Press Enter to continue...' var");
+        system("clear");
+    }
+}
+
+//check employee exist
+int WorkerManager::isExist(int id)
+{
+    int index = -1;
+
+    for (int i = 0; i < this->m_EmpNum; i++)
+    {
+        if (this->m_EmpArray[i]->m_ID == id)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+//modify employee info
+void WorkerManager::ModifyEmp()
+{
+    if (this->m_fileExist)
+    {
+        cout << "文件不存在或者为空！" << endl;
+    }
+    else
+    {
+        cout << "请输入想要修改的职工编号：" << endl;
+        int id;
+        cin >> id;
+
+        int ret = this->isExist(id);
+        if (ret != -1)
+        {
+            //find the person
+
+            // delete this->m_EmpArray[ret];
+
+            int newId = 0;
+            string newName = "";
+            int dSelect = 0;
+
+            cout << "查到：" << id << "号的职工，请输入新的职工号：" << endl;
+            cin >> newId;
+            cout << "请输入新的姓名：" << endl;
+            cin >> newName;
+            cout << "请输入新的岗位：" << endl;
+            cout << "1.普通员工" << endl;
+            cout << "2.经理" << endl;
+            cout << "3.老板" << endl;
+            cin >> dSelect;
+
+            Worker *worker = NULL;
+            switch (dSelect)
+            {
+            case 1:
+                worker = new Employee(newId, newName, 1);
+                break;
+            case 2:
+                worker = new Manager(newId, newName, 2);
+                break;
+            case 3:
+                worker = new Boss(newId, newName, 3);
+                break;
+            default:
+                break;
+            }
+            this->m_EmpArray[ret] = worker;
+            cout << "修改成功！" << endl;
+            this->save();
+        }
+        else
+        {
+            cout << "修改失败，找到该职工!" << endl;
+        }
+        system("read -p 'Press Enter to continue...' var");
+        system("clear");
+    }
+}
+
 WorkerManager::~WorkerManager()
 {
     if (this->m_EmpArray != NULL)
