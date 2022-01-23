@@ -46,6 +46,12 @@ public:
     //find employee
     void find_Emp();
 
+    //sort by employee number
+    void sort_Emp();
+
+    //clear file
+    void clear_Emp();
+
     //check employee exist
     int isExist(int id);
 

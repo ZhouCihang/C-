@@ -384,15 +384,15 @@ void WorkerManager::find_Emp()
                     this->m_EmpArray[i]->showInfo();
                     flag = true;
                 }
-                
             }
             if (flag == false)
             {
                 cout << "查找失败，找不到该职工!" << endl;
             }
         }
-        else{
-            cout <<"输入选项有误！"<< endl;
+        else
+        {
+            cout << "输入选项有误！" << endl;
         }
 
         system("read -p 'Press Enter to continue...' var");
@@ -400,10 +400,89 @@ void WorkerManager::find_Emp()
     }
 }
 
+void WorkerManager::sort_Emp()
+{
+    if (this->m_fileExist)
+    {
+        cout << "文件不存在或者为空！" << endl;
+    }
+    else
+    {
+        cout << "请输入您想要排序的方式：" << endl;
+        cout << "1.升序" << endl;
+        cout << "2.降序" << endl;
+        int select;
+        cin >> select;
+
+        for (int i = 0; i < this->m_EmpNum - 1; i++)
+        {
+            for (int j = 0; j < this->m_EmpNum - i - 1; j++)
+            {
+                if (select == 1)
+                {
+                    if (this->m_EmpArray[j]->m_ID > this->m_EmpArray[j + 1]->m_ID)
+                    {
+                        Worker *temp = this->m_EmpArray[j];
+                        this->m_EmpArray[j] = this->m_EmpArray[j + 1];
+                        this->m_EmpArray[j + 1] = temp;
+                    }
+                }
+                if (select == 2)
+                {
+                    if (this->m_EmpArray[j]->m_ID < this->m_EmpArray[j + 1]->m_ID)
+                    {
+                        Worker *temp = this->m_EmpArray[j];
+                        this->m_EmpArray[j] = this->m_EmpArray[j + 1];
+                        this->m_EmpArray[j + 1] = temp;
+                    }
+                }
+            }
+        }
+        cout << "排序成功：" << endl;
+        this->show_EmpInfo();
+    }
+}
+
+void WorkerManager::clear_Emp()
+{
+    cout << "是否确定清空？" << endl;
+    cout << "1.确定" << endl;
+    cout << "2.返回" << endl;
+    int select;
+    cin >> select;
+
+    if (select == 1)
+    {
+        ofstream ofs(FILENAME, ios::trunc);
+        ofs.close();
+
+        if (this->m_EmpArray != NULL)
+        {
+            for (int i = 0; i < this->m_EmpNum; i++)
+            {
+                delete this->m_EmpArray[i];
+                this->m_EmpArray[i] = NULL;
+            }
+            delete[] this->m_EmpArray;
+            this->m_EmpArray = NULL;
+            this->m_EmpNum = 0;
+            this->m_fileExist = true;
+            cout << "清除成功！" << endl;
+        }
+    }
+    system("read -p 'Press Enter to continue...' var");
+    system("clear");
+}
+
 WorkerManager::~WorkerManager()
 {
     if (this->m_EmpArray != NULL)
     {
+        for (int i = 0; i < this->m_EmpNum; i++)
+        {
+            delete this->m_EmpArray[i];
+            this->m_EmpArray[i] = NULL;
+        }
         delete[] this->m_EmpArray;
         this->m_EmpArray = NULL;
     }

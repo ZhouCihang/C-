@@ -8,18 +8,6 @@ using namespace std;
 
 int main()
 {
-    // Worker *worker = NULL;
-    // worker = new Employee(1, "张三", 1);
-    // worker->showInfo();
-
-    // Worker *worker1 = NULL;
-    // worker1 = new Manager(2, "李四", 2);
-    // worker1->showInfo();
-
-    // Worker *worker2 = NULL;
-    // worker2 = new Boss(3, "王五", 3);
-    // worker2->showInfo();
-
     WorkerManager wm;
 
     int choice;
@@ -56,9 +44,11 @@ int main()
             break;
             //6. 按照编号排序
         case 6:
+            wm.sort_Emp();
             break;
             //7. 清空所有文档
         case 7:
+            //wm.clear_Emp();
             break;
 
         default:
