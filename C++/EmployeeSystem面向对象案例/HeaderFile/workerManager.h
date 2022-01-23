@@ -42,7 +42,10 @@ public:
 
     //modify employee
     void ModifyEmp();
-    
+
+    //find employee
+    void find_Emp();
+
     //check employee exist
     int isExist(int id);
 

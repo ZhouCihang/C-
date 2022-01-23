@@ -52,6 +52,7 @@ int main()
             break;
             //5. 查找职工信息
         case 5:
+            wm.find_Emp();
             break;
             //6. 按照编号排序
         case 6:
