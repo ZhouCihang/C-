@@ -17,7 +17,29 @@ void test01(){
     cout << str1 <<endl;
 }
 
+void test02(){
+    string str1 = "hello world";
+    string str2 = "hello world";
+
+    if(str1.compare(str2) == 0){
+        cout<<"equal"<<endl;
+    }
+}
+
+void test03(){
+    string str = "hello";
+    for (int i=0; i<str.size(); i++){
+        cout << str[i]<< " ";
+        cout<< str.at(i)<< " ";
+    }
+    cout << endl;
+
+    str[0] = 'x';
+    str.at(1) = 'x';
+    cout <<str<< endl;
+}
+
 int main(){
-    test01();
+    test03();
     return 0;
 }
