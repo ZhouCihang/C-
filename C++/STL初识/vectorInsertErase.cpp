@@ -28,42 +28,47 @@ void test01()
     v.insert(v.begin(), 100);
     printVector(v);
 
-    v.insert(v.begin(),2, 1000);
+    v.insert(v.begin(), 2, 1000);
     printVector(v);
 
     v.erase(v.begin());
     printVector(v);
-
 
     //清空
     v.erase(v.begin(), v.end());
     printVector(v);
 }
 
-void test02(){
+void test02()
+{
     vector<int> v;
-    for(int i = 0; i < 10; i++){
+    for (int i = 0; i < 10; i++)
+    {
         v.push_back(i);
     }
 
-    for(int i = 0; i < v.size(); i++){
-        cout << v[i]<<" ";
-        cout<<v.at(i)<<" ";
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+        cout << v.at(i) << " ";
     }
-    cout<<endl;
+    cout << endl;
 
-    cout << v.front()<<" "<<v.back()<<endl;
+    cout << v.front() << " " << v.back() << endl;
 }
 
-void test03(){
+void test03()
+{
     vector<int> v;
-    for(int i = 0; i < 10; i++){
+    for (int i = 0; i < 10; i++)
+    {
         v.push_back(i);
     }
     printVector(v);
 
     vector<int> v2;
-    for (int i =10; i>0; i--){
+    for (int i = 10; i > 0; i--)
+    {
         v2.push_back(i);
     }
     printVector(v2);
@@ -73,27 +78,49 @@ void test03(){
     printVector(v2);
 }
 
-void test04(){
+void test04()
+{
     vector<int> v;
-    for (int i = 0; i < 100000; i++){
+    for (int i = 0; i < 100000; i++)
+    {
         v.push_back(i);
     }
 
-    cout <<"v capacity "<< v.capacity()<< endl;
-    cout <<"v size "<< v.size()<< endl;
-    
+    cout << "v capacity " << v.capacity() << endl;
+    cout << "v size " << v.size() << endl;
+
     v.resize(3);
-    cout <<"v capacity "<< v.capacity()<< endl;
-    cout <<"v size "<< v.size()<< endl;
+    cout << "v capacity " << v.capacity() << endl;
+    cout << "v size " << v.size() << endl;
 
     //swap() to reduce memory
-    vector<int> (v).swap(v);
-    cout <<"v capacity "<< v.capacity()<< endl;
-    cout <<"v size "<< v.size()<< endl;
+    vector<int>(v).swap(v);
+    cout << "v capacity " << v.capacity() << endl;
+    cout << "v size " << v.size() << endl;
+}
+
+void test05(){
+    vector<int> v;
+
+    //reserve memory
+    v.reserve(100000);
+    int num = 0;
+    int *p = NULL;
+
+    for (int i = 0; i < 100000; i++)
+    {
+        v.push_back(i);
+        if(p != &v[0]){
+            p = &v[0];
+            num++;
+        }
+    }
+
+    cout <<"num = "<<num << endl;
 }
 
 int main()
 {
-    test04();
+    test05();
     return 0;
 }
