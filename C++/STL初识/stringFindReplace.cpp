@@ -39,7 +39,16 @@ void test03(){
     cout <<str<< endl;
 }
 
+void test04(){
+    string str1 = "hello world";
+    str1.insert(1,"111");
+    cout <<str1 << endl;
+
+    str1.erase(1,3);
+    cout<<str1 << endl;
+}
+
 int main(){
-    test03();
+    test04();
     return 0;
 }
