@@ -48,7 +48,21 @@ void test04(){
     cout<<str1 << endl;
 }
 
+void test05(){
+    string str1 = "hello world";
+    string substr = str1.substr(1,3);
+    cout <<substr << endl;
+}
+
+void test06(){
+    string email = "matthewzhou1128@gmail.com";
+
+    int pos = email.find("@");
+    string userName = email.substr(0, pos);
+    cout <<userName << endl;
+}
+
 int main(){
-    test04();
+    test06();
     return 0;
 }
