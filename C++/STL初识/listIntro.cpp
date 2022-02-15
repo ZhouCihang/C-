@@ -45,13 +45,19 @@ void test02(){
     l1.push_back(40);
     l1.push_back(50);
 
-    list<int> l4(10, 1999);
-    printList(l1);
-    printList(l4);
+    // list<int> l4(10, 1999);
+    // printList(l1);
+    // printList(l4);
     
-    l1.swap(l4);
-    printList(l1);
-    printList(l4);
+    // l1.swap(l4);
+    // printList(l1);
+    // printList(l4);
+
+    if(l1.empty()){
+        cout<<" empty"<< endl;
+    }else{
+        cout << "not empty"<< " size:"<<l1.size()<< endl;
+    }
 }
 
 int main()
