@@ -95,8 +95,42 @@ void test03(){
     printList(l1);
 }
 
+bool myCompare(int v1, int v2){
+    return v1 >v2;
+}
+void test04(){
+    list<int> l1;
+    l1.push_back(20);
+    l1.push_back(100);
+    l1.push_back(30);
+    l1.push_back(700);
+    l1.push_back(60);
+    
+    printList(l1);
+    //l1[0] or l1.at(0) cannot access list, 
+    cout<<"first element: "<<l1.front()<< endl;
+    cout<<"last element: "<<l1.back()<< endl;
+    
+    list<int>::iterator it = l1.begin();
+    it++;
+    it--;
+    //it = it + 1; 不支持随机访问
+
+    l1.reverse();
+    printList(l1);
+
+
+    //所有不支持随机访问迭代器的容器，不可以用标准算法<algorithm>
+    //#include <algorithm> sort(l1.begin(), l1.end());
+    l1.sort();
+    printList(l1);
+    l1.sort(myCompare);
+    printList(l1);
+}
+
+
 int main()
 {
-    test03();
+    test04();
     return 0;
 }
